@@ -443,12 +443,12 @@ def repl_camel_case_func(m):
 
 
 def class_name_naming_func(s):
-    s = s.replace(".", "_").replace("-","_").replace("@","AT")
+    s = s.replace(".", "_").replace(" ","_").replace("-","_").replace("@","AT")
     return re.sub("(^|\s|[_0-9])(\S)", repl_camel_case_func, s)
 
 
 def member_name_naming_func(s):
-    s = s.replace(".", "_")
+    s = s.replace(".", "_").replace(" ","_").replace("-","_").replace("@","AT")
     return re.sub("(\s|_|[0-9])(\S)", repl_camel_case_func, s)
 
 
