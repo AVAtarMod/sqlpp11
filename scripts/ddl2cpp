@@ -443,7 +443,7 @@ def repl_camel_case_func(m):
 
 
 def class_name_naming_func(s):
-    s = s.replace(".", "_")
+    s = s.replace(".", "_").replace("-","_").replace("@","AT")
     return re.sub("(^|\s|[_0-9])(\S)", repl_camel_case_func, s)
 
 
@@ -691,7 +691,7 @@ def createHeader():
         print("    struct _alias_t", file=header)
         print("    {", file=header)
         print(
-            '      static constexpr const char _literal[] =  "' + sqlTableName + '";',
+            '      static constexpr const char _literal[] =  "\\"' + sqlTableName + '\\"";',
             file=header,
         )
         print(
